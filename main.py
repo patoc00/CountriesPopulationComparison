@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 from countryinfo import CountryInfo
 
+# .title() allows for title case applied to string
+c1 = input("Please enter a country's name: ").title()
+c2 = input("Please enter another country's name: ").title()
 
-c1 = input("Please enter a country's name: ")
-c2 = input("Please enter another country's name: ")
-
+# Creates instance of CountryInfo module for specific country
 country1 = CountryInfo(c1)
 country2 = CountryInfo(c2)
 
+# Calls API methods that requests country's population
 try:
     data1 = country1.population()
 except:
@@ -18,10 +20,7 @@ try:
 except:
     print("Second country name doesn't exist or contains a typo.")
 
-# print(c1 + ": " + str(data1))
-# print(c2 + ": " + str(data2))
-
-# Create a bar chart
+# Create a Bar Chart
 fig, ax = plt.subplots()
 ax.bar([c1, c2], [data1, data2])
 
