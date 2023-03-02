@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from countryinfo import CountryInfo
-
+#I like this idea!
 # .title() allows for title case applied to string
 c1 = input("Please enter a country's name: ").title()
 c2 = input("Please enter another country's name: ").title()
