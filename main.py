@@ -26,11 +26,13 @@ label2.pack()
 input_box2 = tk.Entry(root)
 input_box2.pack()
 
+# declaring Global variables
 c1=""
 c2=""
 data1=0
 data2=0
 
+# helper class
 def closeButton():
     root.destroy()
     sys.exit(0)
@@ -48,6 +50,7 @@ def countryChart():
     canvas = FigureCanvasTkAgg(fig, master=plot_frame)
     canvas.draw()
     canvas.get_tk_widget().pack()
+    # destroy button
     seeGraph.destroy()
     close_button = tk.Button(root, text="Close", command=closeButton)
     close_button.pack()
@@ -55,7 +58,7 @@ def countryChart():
 
 # Create a function to get the user's input and display the chart
 def display_chart1():
-     # Get the user's input for the first country
+    # Get the user's input for the first country, make sure globa variable is used.
     global c1
     c1 = input_box1.get().title()
     # Creates instance of CountryInfo module for specific country
@@ -93,7 +96,9 @@ def display_chart1():
         return
     
     if data2 and data1 != None:
+        # destroy button
         submit_button2.destroy()
+        # show button
         seeGraph.pack()
 
 seeGraph = tk.Button(root, text="See Graph", command=countryChart)
