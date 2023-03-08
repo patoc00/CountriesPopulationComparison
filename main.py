@@ -1,24 +1,34 @@
 import matplotlib.pyplot as plt
 from countryinfo import CountryInfo
 
-# .title() allows for title case applied to string
-c1 = input("Please enter a country's name: ").title()
-c2 = input("Please enter another country's name: ").title()
 
-# Creates instance of CountryInfo module for specific country
-country1 = CountryInfo(c1)
-country2 = CountryInfo(c2)
+while(True):
+    # .title() allows for title case applied to string
+    c1 = input("Please enter a country's name: ").title()
+    
+    # Creates instance of CountryInfo module for specific country
+    country1 = CountryInfo(c1)
 
-# Calls API methods that requests country's population
-try:
-    data1 = country1.population()
-except:
-    print("First country name doesn't exist or contains a typo.")
+    # Calls API methods that requests country's population
+    try:
+        data1 = country1.population()
+        break
+    except:
+        print("First country name doesn't exist or contains a typo.")
 
-try:
-    data2 = country2.population()
-except:
-    print("Second country name doesn't exist or contains a typo.")
+while(True):
+    # .title() allows for title case applied to string
+    c2 = input("Please enter another country's name: ").title()
+
+    # Creates instance of CountryInfo module for specific country
+    country2 = CountryInfo(c2)
+
+    # Calls API methods that requests country's population
+    try:
+        data2 = country2.population()
+        break
+    except:
+        print("Second country name doesn't exist or contains a typo.")
 
 # Create a Bar Chart
 fig, ax = plt.subplots()
